@@ -9,12 +9,12 @@ test_font = pygame.font.Font('./font/Pixeltype.ttf', 50)
 
  # test_surface = pygame.Surface((100, 200)) # create regular test surface
 
-sky_surface = pygame.image.load('./graphics/Sky.png').convert()
+sky_surf = pygame.image.load('./graphics/Sky.png').convert()
 
-ground_surface = pygame.image.load('./graphics/ground.png').convert()
-ground_rect = ground_surface.get_rect(topleft = (0, 300))
+ground_surf = pygame.image.load('./graphics/ground.png').convert()
+ground_rect = ground_surf.get_rect(topleft = (0, 300))
 
-text_surface = test_font.render('My Game', False, 'Black').convert()
+text_surf = test_font.render('My Game', False, 'Black').convert()
 
 snail_surface = pygame.image.load('./graphics/snail/snail1.png').convert_alpha()
 snail_rect = snail_surface.get_rect(bottomleft = (600, 300))
@@ -29,11 +29,11 @@ while True:
             exit()
     # draw all our elements
     # update everything
-    screen.blit(sky_surface,(0, 0)) # block image transfer / 1 surface on top of another
-    screen.blit(ground_surface,ground_rect)
-    screen.blit(text_surface,(300, 50))
+    screen.blit(sky_surf,(0, 0)) # block image transfer / 1 surface on top of another
+    screen.blit(ground_surf,ground_rect)
+    screen.blit(text_surf,(300, 50))
     snail_rect.left -= 4 
-    if snail_rect.left < -100: snail_rect.left = 800
+    if snail_rect.right < -100: snail_rect.left = 800
     screen.blit(snail_surface,snail_rect)
     
     player_rect.left += 1
